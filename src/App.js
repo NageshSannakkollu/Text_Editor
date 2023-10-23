@@ -2,8 +2,19 @@ import {Component} from 'react'
 import {AiOutlineUnderline} from 'react-icons/ai'
 import {GoItalic} from 'react-icons/go'
 import {VscBold} from 'react-icons/vsc'
-
-import './App.css'
+import {
+  CustomButton,
+  ItalicButton,
+  UnderlineButton,
+  TextArea,
+  UnOrderList,
+  TextInputContainer,
+  ApplicationContainer,
+  TextEditorContainer,
+  ImageContainer,
+  MainHeading,
+  TextEditorImage,
+} from './styledComponents'
 
 class App extends Component {
   state = {
@@ -26,69 +37,66 @@ class App extends Component {
 
   render() {
     const {bold, italic, underLine} = this.state
-    const boldText = bold ? 'bold' : ''
-    const italicText = italic ? 'italic' : ''
-    const underlineText = underLine ? 'underline' : ''
-
-    const boldButton = bold ? 'bold-button' : ''
-    const italicButton = italic ? 'italic-button' : ''
-    const underlineButton = underLine ? 'underline-button' : ''
     return (
-      <div className="app-container">
-        <div className="text-editor-container">
-          <div className="image-container">
-            <h1 className="text-editor-heading">Text Editor</h1>
-            <img
+      <ApplicationContainer className="app-container">
+        <TextEditorContainer className="text-editor-container">
+          <ImageContainer className="image-container">
+            <MainHeading className="text-editor-heading">
+              Text Editor
+            </MainHeading>
+            <TextEditorImage
               src="https://assets.ccbp.in/frontend/react-js/text-editor-img.png"
               alt="text editor"
               className="text-editor-image"
             />
-          </div>
+          </ImageContainer>
 
-          <div className="text-input-container">
-            <ul className="icons-container">
-              <button
-                type="button"
-                data-testid="bold"
-                className={`buttons ${boldButton}`}
-                onClick={this.onClickBoldButton}
-              >
-                <li>
+          <TextInputContainer className="text-input-container">
+            <UnOrderList className="icons-container">
+              <li>
+                <CustomButton
+                  type="button"
+                  data-testid="bold"
+                  bold={bold}
+                  onClick={this.onClickBoldButton}
+                >
                   <VscBold size={25} />
-                </li>
-              </button>
-              <button
-                type="button"
-                data-testid="italic"
-                className={`buttons ${italicButton}`}
-                onClick={this.onClickItalicButton}
-              >
-                <li>
+                </CustomButton>
+              </li>
+              <li>
+                <ItalicButton
+                  italic={italic}
+                  type="button"
+                  data-testid="italic"
+                  onClick={this.onClickItalicButton}
+                >
                   <GoItalic size={25} />
-                </li>
-              </button>
-              <button
-                type="button"
-                data-testid="underline"
-                className={`buttons ${underlineButton}`}
-                onClick={this.onClickUnderLineButton}
-              >
-                <li>
+                </ItalicButton>
+              </li>
+              <li>
+                <UnderlineButton
+                  underLine={underLine}
+                  type="button"
+                  data-testid="underline"
+                  onClick={this.onClickUnderLineButton}
+                >
                   <AiOutlineUnderline size={25} />
-                </li>
-              </button>
-            </ul>
+                </UnderlineButton>
+              </li>
+            </UnOrderList>
             <hr size={2} className="hr-line" />
-            <textarea
+            <TextArea
               rows="10"
               cols="30"
               placeholder="Enter text here..."
-              className={`text-area ${boldText} ${italicText} ${underlineText}`}
+              bold={bold}
+              italic={italic}
+              underLine={underLine}
               onChange={this.onChangeTextArea}
             />
-          </div>
-        </div>
-      </div>
+          </TextInputContainer>
+        </TextEditorContainer>
+      </ApplicationContainer>
     )
   }
 }
