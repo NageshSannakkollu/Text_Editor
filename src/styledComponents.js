@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const CustomButton = styled.button`
-  color: ${props => (props.bold ? '#f1ff00' : '#f1f5f9')};
+  color: ${props => (props.bold ? '#faff00' : '#f1f5f9')};
   border: 0;
   margin-left: 15px;
   background-color: transparent;
@@ -10,10 +10,10 @@ export const CustomButton = styled.button`
 `
 
 export const UnderlineButton = styled(CustomButton)`
-  color: ${props => (props.underLine ? '#f1ff00' : '#f1f5f9')};
+  color: ${props => (props.underLine ? '#faff00' : '#f1f5f9')};
 `
 export const ItalicButton = styled(CustomButton)`
-  color: ${props => (props.italic ? '#f1ff00' : '#f1f5f9')};
+  color: ${props => (props.italic ? '#faff00' : '#f1f5f9')};
 `
 export const TextArea = styled.textarea`
   font-style: ${props => (props.italic ? 'italic' : 'normal')};
@@ -33,6 +33,8 @@ export const UnOrderList = styled.ul`
   display: flex;
   align-items: center;
   list-style-type: none;
+  margin-left: 0px;
+  padding-left: 0px;
 `
 export const TextInputContainer = styled.div`
   width: 45%;
